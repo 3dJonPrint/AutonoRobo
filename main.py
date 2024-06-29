@@ -18,13 +18,13 @@ motorSpeedRightPin = 13
 #lineSensorRightPin = gpiozero.LineSensor()
 print(type(motorForwardLeftPin))
 
-"""forwardLeft = gpiozero.DigitalOutputDevice(motorForwardLeftPin)
+forwardLeft = gpiozero.DigitalOutputDevice(motorForwardLeftPin)
 reverseLeft = gpiozero.DigitalOutputDevice(motorReverseLeftPin)
 speedLeft = gpiozero.PWMOutputDevice(motorSpeedLeftPin)
 forwardRight = gpiozero.DigitalOutputDevice(motorForwardRightPin)
 reverseRight = gpiozero.DigitalOutputDevice(motorReverseRightPin)
 speedRight = gpiozero.PWMOutputDevice(motorSpeedRightPin)
-"""
+
 
 
 def stop():

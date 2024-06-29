@@ -19,13 +19,11 @@ motorSpeedRightPin = 13
 
 forwardLeft = gpiozero.DigitalOutputDevice(motorForwardLeftPin, active_high=True, initial_value=False)
 reverseLeft = gpiozero.DigitalOutputDevice(motorReverseLeftPin, active_high=True, initial_value=False)
-speedLeft = gpiozero.PWMOutputDevice(motorSpeedLeftPin, active_high=True, initial_value=1, frequency=100)
+speedLeft = gpiozero.DigitalOutputDevice(motorSpeedLeftPin, active_high=True, initial_value=1, frequency=100)
 
 forwardRight = gpiozero.DigitalOutputDevice(motorForwardRightPin, active_high=True, initial_value=False)
 reverseRight = gpiozero.DigitalOutputDevice(motorReverseRightPin, active_high=True, initial_value=False)
 speedRight = gpiozero.PWMOutputDevice(motorSpeedRightPin, active_high=True, initial_value=1, frequency=100)
-
-
 
 def stop():
   forwardLeft.off()
@@ -62,8 +60,17 @@ while True:
   speedRight.value = 1.0
   forwardDrive()
   print("drive")
+  print(forwardLeft.value)
+  print(forwardRight.value)
+  print(reverseLeft.value)
+  print(reverseRight.value)
   time.sleep(5)
   stop()
   print("stop")
+  print(forwardLeft.value)
+  print(forwardRight.value)
+  print(reverseLeft.value)
+  print(reverseRight.value)
   time.sleep(5)
+  
   

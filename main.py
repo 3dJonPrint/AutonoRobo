@@ -61,7 +61,9 @@ while True:
   speedLeft.value = 1.0
   speedRight.value = 1.0
   forwardDrive()
+  print("drive")
   time.sleep(5)
   stop()
+  print("stop")
   time.sleep(5)
   

@@ -1,38 +1,66 @@
+from math import trunc
 import gpiozero
 import time
 
 #Motor A
-motorForwardLeftPin = 26
-motorReverseLeftPin = 19
-motorSpeedLeftPin = 
+motorForwardLeftPin = 17
+motorReverseLeftPin = 27
+motorSpeedLeftPin = 22
   
 #Motor B
-motorForwardRightPin = 13
+motorForwardRightPin = 5
 motorReverseRightPin = 6
-motorSpeedRightPin = 
+motorSpeedRightPin = 13
 
-forwardLeft = gpiozero.PWMOutputDevice(motorForwardLeftPin, True, 0, 1000)
-reverseLeft = gpiozero.PWMOutputDevice(motorReverseLeftPin, True, 0, 1000)
-speedLeft = gpiozero.PWMOutputDevice(motorSpeedLeftPin, True, 0, 1000)
+#Liniensensor
+lineSensorLeftPin = gpiozero.LineSensor()
+lineSensorMidPin = gpiozero.LineSensor()
+lineSensorRightPin = gpiozero.LineSensor()
 
-forwardRight = gpiozero.PWMOutputDevice(motorForwardRightPin, True, 0, 1000)
-reverseRight = gpiozero.PWMOutputDevice(motorReverseRightPin, True, 0, 1000)
-speedRight = gpiozero.PWMOutputDevice(motorSpeedRightPin, True, 0, 1000)
+forwardLeft = gpiozero.DigitalOutputDevice(motorForwardLeftPin, True, False)
+reverseLeft = gpiozero.DigitalOutputDevice(motorReverseLeftPin, True, False)
+speedLeft = gpiozero.PWMOutputDevice(motorSpeedLeftPin, True, 1)
+
+forwardRight = gpiozero.DigitalOutputDevice(motorForwardRightPin, True, False)
+reverseRight = gpiozero.DigitalOutputDevice(motorReverseRightPin, True, False)
+speedRight = gpiozero.PWMOutputDevice(motorSpeedRightPin, True, 1)
+
+
 
 def stop():
-  forwardLeft.value = 0
-  forwardRight.value = 0
-  reverseLeft.value = 0
-  reverseRight.value = 0
+  speedLeft
+  forwardLeft.off()
+  forwardRight.off()
+  reverseLeft.off()
+  reverseRight.off()
 
 def forwardDrive():
+  forwardLeft.on()
+  reverseLeft.off()
+  forwardRight.on()
+  reverseRight.off()
+
+def reverseDrive():
+  forwardLeft.value = 0
+  reverseLeft.value = 1.0
+  forwardRight.value = 0
+  reverseRight.value = 1.0
+
+def rightTurn():
   forwardLeft.value = 1.0
   reverseLeft.value = 0
-  forwardRight.value = 1.0
-  reverseRight.value = 0
+  forwardRight.value = 0
+  reverseRight.value = 1.0
 
-def main():
+def leftTurn():
+  forwardLeft.value = False
+  reverseLeft.value = True
+  forwardRight.value = True
+  reverseRight.value = False
+
+while True:
   forwardDrive()
   time.sleep(5)
   stop()
   time.sleep(5)
+  

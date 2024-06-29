@@ -1,5 +1,5 @@
 modules = ["python-3.10", "python-3.12"]
-run = "git add -A && git commit -a -m 'push' && python main.py"
+run = "git add -A && git commit -a -m 'push' && git push && python main.py"
 #run = "python main.py"
 [nix]
 channel = "stable-23_11"

@@ -16,7 +16,7 @@ motorSpeedRightPin = 13
 #lineSensorLeftPin = gpiozero.LineSensor()
 #lineSensorMidPin = gpiozero.LineSensor()
 #lineSensorRightPin = gpiozero.LineSensor()
-print(type(motorForwardLeftPin))
+print(motorForwardLeftPin)
 
 forwardLeft = gpiozero.DigitalOutputDevice(motorForwardLeftPin)
 reverseLeft = gpiozero.DigitalOutputDevice(motorReverseLeftPin)

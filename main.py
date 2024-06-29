@@ -20,6 +20,7 @@ motorSpeedRightPin = 13
 forwardLeft = gpiozero.DigitalOutputDevice(motorForwardLeftPin, active_high=True, initial_value=False)
 reverseLeft = gpiozero.DigitalOutputDevice(motorReverseLeftPin, active_high=True, initial_value=False)
 speedLeft = gpiozero.PWMOutputDevice(motorSpeedLeftPin, active_high=True, initial_value=1, frequency=100)
+
 forwardRight = gpiozero.DigitalOutputDevice(motorForwardRightPin, active_high=True, initial_value=False)
 reverseRight = gpiozero.DigitalOutputDevice(motorReverseRightPin, active_high=True, initial_value=False)
 speedRight = gpiozero.PWMOutputDevice(motorSpeedRightPin, active_high=True, initial_value=1, frequency=100)

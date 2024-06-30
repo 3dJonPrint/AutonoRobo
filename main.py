@@ -49,18 +49,20 @@ def turnAround():
     
 #Fahrfunktion
 def drive(speed = 1.0, steer = 0.0):
+  brake = False
   right = 0.0
   left = 0.0
   if (speed == 0 and not steer == 0):
     left = 1.0*steer
     right = -1.0*steer
   elif (speed == 0 and steer == 0):
+    brake = True
     forwardLeft.on()
     forwardRight.on()
     reverseLeft.on()
     reverseRight.on()
-    left = 1.0
-    right = 1.0
+    left = 1
+    right = 1
   else:
     if steer < 0:
       left = helpers.map(steer, -1, 0, 0, speed)
@@ -70,18 +72,19 @@ def drive(speed = 1.0, steer = 0.0):
       left = speed
     elif steer == 0:
       left,right = speed,speed
-  if left > 0:
-    forwardLeft.on()
-    reverseLeft.off()
-  elif left < 0:
-    reverseLeft.on()
-    forwardLeft.off()
-  if right > 0:
-    forwardRight.on()
-    reverseRight.off()
-  elif right < 0:
-    reverseRight.on()
-    forwardRight.off()
+  if not brake:
+    if left > 0:
+      forwardLeft.on()
+      reverseLeft.off()
+    elif left < 0:
+      reverseLeft.on()
+      forwardLeft.off()
+    if right > 0:
+      forwardRight.on()
+      reverseRight.off()
+    elif right < 0:
+      reverseRight.on()
+      forwardRight.off()
   print(left,right)
   left = abs(left)
   right = abs(right)
@@ -128,19 +131,19 @@ while True:
   print("all")
   time.sleep(5)
   drive(0,0.5)
-  print("right")
+  print("right")+
   time.sleep(5)
   drive(0, -0.5)
-  print("left")
+  print("left")+
   time.sleep(5)
   drive(0, 0)
-  print("nothing")
+  print("nothing")++
   time.sleep(5)
   drive(0.2, -0.5)
   print("left mid")
   time.sleep(5)
   drive(0.2, 0.5)
-  print("mid right")
+  print("mid right")-
   time.sleep(5)
   drive(0,0)
   print("left right")

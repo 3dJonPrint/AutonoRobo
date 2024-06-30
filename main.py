@@ -52,8 +52,8 @@ def drive(speed = 1.0, steer = 0.0):
   right = 0.0
   left = 0.0
   if (speed == 0 and not steer == 0):
-    left = 1*steer
-    right = -1*steer
+    left = 1.0*steer
+    right = -1.0*steer
   elif (speed == 0 and steer == 0):
     forwardLeft.on()
     forwardRight.on()
@@ -63,10 +63,10 @@ def drive(speed = 1.0, steer = 0.0):
     right = 1.0
   else:
     if steer < 0:
-      left = helpers.map(steer, -1, 0, 0, speed)
+      left = helpers.map(steer, -1, -1, 1, speed)
       right = speed
     elif steer > 0:
-      right = helpers.map(steer, 1, 0, 0, speed)
+      right = helpers.map(steer, 1, -1, 1, speed)
       left = speed
     elif steer == 0:
       left,right = speed,speed
@@ -94,10 +94,10 @@ def linesensordrive():
   lr = lineSensorRightPin.line_detected
   #ultraschallSensor.when_in_range(turnAround)
   if (not ll and lm and not lr):
-    drive()
+    drive(0.5, 0)
     print("mid")
   elif ( ll and lm and lr):
-    drive()
+    drive(0.5, 0)
     print("all")
   elif (not ll and not lm and lr):
     drive(0,1)

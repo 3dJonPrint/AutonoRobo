@@ -33,8 +33,6 @@ ultraschallSensor = gpiozero.DistanceSensor(echo=23, trigger=24, threshold_dista
 #ultraschallSensor.when_in_range(turnAround)
 ultraschallServo = gpiozero.Servo(21)
 
-
-
 #falls def drive nt funktionieren sollte>
 """def forward():
   forwardLeft.on()
@@ -64,8 +62,10 @@ def turnAround():
   time.sleep(0.5)
   if distanceLeft < distanceRight:
     drive(0,1)
+    time.sleep(0.5)
   elif distanceLeft > distanceRight:
     drive(0,-1)
+    time.sleep(0.5)
 
 def drive(speed = 1.0, steer = 0.0):
   right = 0.0
@@ -85,7 +85,7 @@ def drive(speed = 1.0, steer = 0.0):
       left = helpers.map(steer, -1, 0, 0, speed)
       right = speed
     elif steer > 0:
-      right = helpers.map(steer, -1, 0, 0, speed)
+      right = helpers.map(steer, 1, 0, 0, speed)
       left = speed
     elif steer == 0:
       left,right = speed,speed

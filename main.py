@@ -63,10 +63,10 @@ def drive(speed = 1.0, steer = 0.0):
     right = 1.0
   else:
     if steer < 0:
-      left = helpers.map(steer, -1, 1, -1, speed)
+      left = helpers.map(steer, -1, 0, 0, speed)
       right = speed
     elif steer > 0:
-      right = helpers.map(steer, 1, 1, -1, speed)
+      right = helpers.map(steer, 0, 1, 0, speed)
       left = speed
     elif steer == 0:
       left,right = speed,speed

@@ -70,24 +70,24 @@ def drive(speed = 1.0, steer = 0.0):
       left = speed
     elif steer == 0:
       left,right = speed,speed
-    if left > 0:
-      forwardLeft.on()
-      reverseLeft.off()
-    elif left < 0:
-      reverseLeft.on()
-      forwardLeft.off()
-    if right > 0:
-      forwardRight.on()
-      reverseRight.off()
-    elif right < 0:
-      reverseRight.on()
-      forwardRight.off()
-    print(left,right)
-    left = abs(left)
-    right = abs(right)
-    print(left,right)
-    speedLeft.value = left
-    speedRight.value = right
+  if left > 0:
+    forwardLeft.on()
+    reverseLeft.off()
+  elif left < 0:
+    reverseLeft.on()
+    forwardLeft.off()
+  if right > 0:
+    forwardRight.on()
+    reverseRight.off()
+  elif right < 0:
+    reverseRight.on()
+    forwardRight.off()
+  print(left,right)
+  left = abs(left)
+  right = abs(right)
+  print(left,right)
+  speedLeft.value = left
+  speedRight.value = right
 
 #Liniensensor funktion
 def linesensordrive():

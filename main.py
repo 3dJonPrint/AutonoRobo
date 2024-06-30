@@ -2,6 +2,10 @@
 import gpiozero
 import time
 import helpers
+from time import sleep
+
+#debug schleifen
+drivedemo = True
 
 #Pin Initalisierung
 #Motor A
@@ -65,10 +69,10 @@ def drive(speed = 1.0, steer = 0.0):
     right = 1
   else:
     if steer < 0:
-      left = helpers.map(steer, -1, 0, 0, speed)
+      left = helpers.map(1+steer, -1, 0, 0, speed)
       right = speed
     elif steer > 0:
-      right = helpers.map(steer, 0, 1, speed, 0)
+      right = helpers.map(1-steer, 0, 1, speed, 0)
       left = speed
     elif steer == 0:
       left,right = speed,speed
@@ -85,6 +89,13 @@ def drive(speed = 1.0, steer = 0.0):
     elif right < 0:
       reverseRight.on()
       forwardRight.off()
+  i = 1
+  if speed > 0:
+    i = 1
+  elif speed < 0:
+    i = -1
+  left = left*i
+  right = right*i
   print(left,right)
   left = abs(left)
   right = abs(right)
@@ -106,12 +117,10 @@ def linesensordrive():
     print("all")
   elif (not ll and not lm and lr):
     print("right")
-    while lm:
-      drive(0,0.4)
+    drive(0,0.4)
   elif ( ll and not lm and not lr):
     print("left")
-    while lm:
-      drive(0, -0.4)
+    drive(0, -0.4)
   elif (not ll and not lm and not lr):
     drive(0.3, 0)
     print("nothing")
@@ -124,6 +133,23 @@ def linesensordrive():
   elif ( ll and not lm and lr):
     drive(0,0)
     print("left right")
+
+def drive_demo():
+  drive()
+  sleep(1)
+  drive(0, 1)
+  sleep(3)
+  drive(0, -1)
+  sleep(3)
+  drive(1, 1)
+  sleep(5)
+  drive(1, -1)
+  sleep(5)
+  drive(-1, 0)
+  sleep(10)
+
+while drivedemo:
+  drive_demo()
 
 while False:
   drive(0.2, 0)
@@ -151,7 +177,7 @@ while False:
   print("left right")
   time.sleep(5)
 
-while False:
+while False :
   ll = lineSensorLeftPin.line_detected
   lm = lineSensorMidPin.line_detected
   lr = lineSensorRightPin.line_detected
@@ -173,7 +199,7 @@ while False:
     print("left right")
   time.sleep(0.5)
 
-while True:
+while False:
   linesensordrive()
   time.sleep(0.2)
 

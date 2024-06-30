@@ -33,25 +33,6 @@ ultraschallSensor = gpiozero.DistanceSensor(echo=23, trigger=24, threshold_dista
 #ultraschallSensor.when_in_range(turnAround)
 ultraschallServo = gpiozero.Servo(21)
 
-#falls def drive nt funktionieren sollte>
-"""def forward():
-  forwardLeft.on()
-  forwardRight.on()
-
-def right():
-  forwardLeft.on()
-  reverseRight.on()
-
-def left():
-  reverseLeft.on()
-  forwardRight.on()
-
-def stop():
-  forwardLeft.off()
-  forwardRight.off()
-  reverseLeft.off()
-  reverseRight.off()"""
-
 #Ultraschallsensor funktion
 def turnAround():
   ultraschallServo.min()
@@ -66,7 +47,7 @@ def turnAround():
   elif distanceLeft > distanceRight:
     drive(0,-1)
     time.sleep(0.5)
-
+#Fahrfun
 def drive(speed = 1.0, steer = 0.0):
   right = 0.0
   left = 0.0
@@ -108,10 +89,10 @@ def drive(speed = 1.0, steer = 0.0):
     speedRight.value = right
 
 while True:
-  drive(1,0.5)
+  drive(0.5,0.3)
   print("drive")
   time.sleep(1)
-  drive(1,-0.5)
+  drive(0.5,-0.3)
   print("stop")
   time.sleep(1)
 """  #Liniensensor funktion

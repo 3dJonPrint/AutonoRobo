@@ -124,7 +124,7 @@ def linesensordrive():
     print("left")
     drive(0, -0.4)
   elif (not ll and not lm and not lr):
-    drive(0.3, 0)
+    drive(0, 0)
     print("nothing")
   elif ( ll and lm and not lr):
     drive(0.35, -1)
@@ -149,7 +149,7 @@ def drive_demo():
 while drivedemo:
   drive_demo()
 
-while False:
+while True:
   drive(0.2, 0)
   print("mid")
   time.sleep(5)

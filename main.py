@@ -112,7 +112,7 @@ while True:
 
   
 
-  """speedLeft.value = 1.0
+"""speedLeft.value = 1.0
   speedRight.value = 1.0
   forwardDrive()
   print("drive")

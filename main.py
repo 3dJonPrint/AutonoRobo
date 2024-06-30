@@ -96,7 +96,7 @@ def linesensordrive():
   lr = lineSensorRightPin.line_detected
   #ultraschallSensor.when_in_range(turnAround)
   if (not ll and lm and not lr):
-    drive(0.5, 0)
+    drive(0.2, 0)
     print("mid")
   elif ( ll and lm and lr):
     drive(0.5, 0)

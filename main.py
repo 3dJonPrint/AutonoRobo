@@ -54,6 +54,8 @@ def turnAround():
 #Fahrfunktion
 def drive(speed = 1.0, steer = 0.0):
   brake = False
+  speed2 = speed
+  #speed = abs(speed)
   right = 0.0
   left = 0.0
   if (speed == 0 and not steer == 0):
@@ -90,9 +92,9 @@ def drive(speed = 1.0, steer = 0.0):
       reverseRight.on()
       forwardRight.off()
   i = 1
-  if speed > 0:
+  if speed2 > 0:
     i = 1
-  elif speed < 0:
+  elif speed2 < 0:
     i = -1
   left = left*i
   right = right*i
@@ -137,7 +139,7 @@ def linesensordrive():
 def drive_demo():
   drive(0.5, 0)
   sleep(1)
-"""  drive(1, 0.5)
+  """drive(1, 0.5)
   sleep(5)
   drive(1, -0.5)
   sleep(5)"""

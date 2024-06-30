@@ -107,7 +107,7 @@ while True:
 
 """Ultraschallsensor funktion
 
-ultraschallSensor.when_in_range():
+ultraschallSensor.when_in_range(meineFunktiom):
 
 if ultraschallSensor.when_in_range():
   ultraschallServo.min()

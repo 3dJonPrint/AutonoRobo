@@ -108,10 +108,10 @@ def drive(speed = 1.0, steer = 0.0):
     speedRight.value = right
 
 while True:
-  drive(1,1)
+  drive(1,0.5)
   print("drive")
   time.sleep(1)
-  drive(1,-1)
+  drive(1,-0.5)
   print("stop")
   time.sleep(1)
 """  #Liniensensor funktion

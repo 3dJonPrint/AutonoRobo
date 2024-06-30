@@ -5,7 +5,7 @@ import helpers
 from time import sleep
 
 #debug schleifen
-drivedemo = False
+drivedemo = True
 
 #Pin Initalisierung
 #Motor A
@@ -149,7 +149,7 @@ def drive_demo():
 while drivedemo:
   drive_demo()
 
-while True:
+while False:
   drive(0.2, 0)
   print("mid")
   time.sleep(5)
@@ -175,7 +175,7 @@ while True:
   print("left right")
   time.sleep(5)
 
-while True:
+while False:
   ll = lineSensorLeftPin.line_detected
   lm = lineSensorMidPin.line_detected
   lr = lineSensorRightPin.line_detected

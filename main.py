@@ -78,6 +78,13 @@ def drive(speed = 1.0, steer = 0.0):
       left = speed
     elif steer == 0:
       left,right = speed,speed
+    i = 1
+    if speed2 > 0:
+      i = 1
+    elif speed2 < 0:
+      i = -1
+    left = left*i
+    right = right*i
   if not brake:
     if left > 0:
       forwardLeft.on()
@@ -91,16 +98,9 @@ def drive(speed = 1.0, steer = 0.0):
     elif right < 0:
       reverseRight.on()
       forwardRight.off()
-  i = 1
-  if speed2 > 0:
-    i = 1
-  elif speed2 < 0:
-    i = -1
-  left = left
-  right = right
   print(left,right)
-  left = abs(left)*i
-  right = abs(right)*i
+  left = abs(left)
+  right = abs(right)
   print(left,right)
   speedLeft.value = left
   speedRight.value = right

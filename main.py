@@ -6,6 +6,7 @@ from time import sleep
 
 #debug schleifen
 drivedemo = True
+line_drivemods = False
 
 #Pin Initalisierung
 #Motor A
@@ -139,17 +140,17 @@ def linesensordrive():
 def drive_demo():
   drive(0.5, 0)
   sleep(1)
-  """drive(1, 0.5)
+  drive(1, 0.5)
   sleep(5)
   drive(1, -0.5)
-  sleep(5)"""
+  sleep(5)
   drive(-1, 0)
   sleep(0.5)
 
 while drivedemo:
   drive_demo()
 
-while False:
+while line_drivemods:
   drive(0.2, 0)
   print("mid")
   time.sleep(5)

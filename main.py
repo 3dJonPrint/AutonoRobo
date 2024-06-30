@@ -15,7 +15,7 @@ motorSpeedRightPin = 13
 #MotorInitalisierung
 forwardLeft = gpiozero.DigitalOutputDevice(motorForwardLeftPin, active_high=True, initial_value=False)
 reverseLeft = gpiozero.DigitalOutputDevice(motorReverseLeftPin, active_high=True, initial_value=False)
-speedLeft = gpiozero.DigitalOutputDevice(motorSpeedLeftPin, active_high=True, initial_value=1, frequency=100)
+speedLeft = gpiozero.PWMOutputDevice(motorSpeedLeftPin, active_high=True, initial_value=1, frequency=100)
 
 forwardRight = gpiozero.DigitalOutputDevice(motorForwardRightPin, active_high=True, initial_value=False)
 reverseRight = gpiozero.DigitalOutputDevice(motorReverseRightPin, active_high=True, initial_value=False)
@@ -55,8 +55,14 @@ def drive(speed = 1.0, steer = 0.0):
   if (speed == 0 and not steer == 0):
     left = 1*steer
     right = -1*steer
-  elif (speed == 0 and steer == 0)
-    
+  elif (speed == 0 and steer == 0):
+    forwardLeft.on()
+    forwardRight.on()
+    reverseLeft.on()
+    reverseRight.on()
+    left = 1.0
+    right = 1.0
+  else:
     if steer < 0:
       left = helpers.map(steer, -1, 0, 0, speed)
       right = speed

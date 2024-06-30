@@ -98,13 +98,13 @@ while True:
   elif lineSensorLeftPin:
     drive(0, -1)
 
-#Ultraschallsensor funktion
+"""#Ultraschallsensor funktion
 while True:
   if ultraschallSensor.distance*100 < 5:
     left()
   elif:
     forward()
-  if ultraschallServo.value == 1:
+  if ultraschallServo.value == 1:"""
     
     
   

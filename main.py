@@ -119,9 +119,9 @@ def linesensordrive():
     print("left right")
 
 while True:
-  ll = lineSensorLeftPin
-  lm = lineSensorMidPin
-  lr = lineSensorRightPin
+  ll = lineSensorLeftPin.line_detected
+  lm = lineSensorMidPin.line_detected
+  lr = lineSensorRightPin.line_detected
   if (not ll and lm and not lr):
     print("mid")
   elif ( ll and lm and lr):

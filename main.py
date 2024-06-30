@@ -111,10 +111,10 @@ def linesensordrive():
     drive(0,-1)
     print("nothing")
   elif ( ll and lm and not lr):
-    drive(0.5, -0.2)
+    drive(0.5, -0.5)
     print("left mid")
   elif (not ll and lm and lr):
-    drive(0.5, 0.2)
+    drive(0.5, 0.5)
     print("mid right")
   elif ( ll and not lm and lr):
     drive(0,0)

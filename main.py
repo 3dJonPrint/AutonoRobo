@@ -131,19 +131,19 @@ while True:
   print("all")
   time.sleep(5)
   drive(0,0.5)
-  print("right")+
+  print("right")
   time.sleep(5)
   drive(0, -0.5)
-  print("left")+
+  print("left")
   time.sleep(5)
   drive(0, 0)
-  print("nothing")++
+  print("nothing")
   time.sleep(5)
   drive(0.2, -0.5)
   print("left mid")
   time.sleep(5)
   drive(0.2, 0.5)
-  print("mid right")-
+  print("mid right")
   time.sleep(5)
   drive(0,0)
   print("left right")

@@ -2,7 +2,7 @@
 name = "repl-nix-autonorobo"
 version = "0.1.0"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["Jonas & Phillip"]
 readme = "README.md"
 packages = [{include = "repl_nix_autonorobo"}]
 

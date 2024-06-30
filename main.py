@@ -24,9 +24,9 @@ reverseRight = gpiozero.DigitalOutputDevice(motorReverseRightPin, active_high=Tr
 speedRight = gpiozero.PWMOutputDevice(motorSpeedRightPin, active_high=True, initial_value=1, frequency=100)
 
 #Liniensensor
-lineSensorLeftPin = gpiozero.LineSensor(25)
+lineSensorLeftPin = gpiozero.LineSensor(23)
 lineSensorMidPin = gpiozero.LineSensor(24)
-lineSensorRightPin = gpiozero.LineSensor(23)
+lineSensorRightPin = gpiozero.LineSensor(25)
 
 #Ultraschallsensor
 ultraschallSensor = gpiozero.DistanceSensor(echo=12, trigger=16, threshold_distance = 0.05)

@@ -144,6 +144,7 @@ while False:
 
 while True:
   linesensordrive()
+  time.sleep(0.1)
 
 """while True:
   drive(0.5,0.3)

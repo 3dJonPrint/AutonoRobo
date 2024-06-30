@@ -82,8 +82,10 @@ def drive(speed = 1.0, steer = 0.0):
     elif right < 0:
       reverseRight.on()
       forwardRight.off()
+    print(left,right)
     left = abs(left)
     right = abs(right)
+    print(left,right)
     speedLeft.value = left
     speedRight.value = right
 

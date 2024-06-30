@@ -30,7 +30,7 @@ lineSensorRightPin = gpiozero.LineSensor(23)
 
 #Ultraschallsensor
 ultraschallSensor = gpiozero.DistanceSensor(echo=12, trigger=16, threshold_distance = 0.05)
-ultraschallServo = gpiozero.Servo(21)
+ultraschallServo = gpiozero.Servo(26)
 
 #Ultraschallsensor funktion
 def turnAround():
@@ -89,9 +89,9 @@ def drive(speed = 1.0, steer = 0.0):
 
 #Liniensensor funktion
 def linesensordrive():
-  ll = lineSensorLeftPin
-  lm = lineSensorMidPin
-  lr = lineSensorRightPin
+  ll = lineSensorLeftPin.line_detected
+  lm = lineSensorMidPin.line_detected
+  lr = lineSensorRightPin.line_detected
   #ultraschallSensor.when_in_range(turnAround)
   if (not ll and lm and not lr):
     drive()

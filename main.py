@@ -90,7 +90,7 @@ def drive(speed = 1.0, steer = 0.0):
     speedRight.value = right
 
 while True:
-  drive()
+  drive(0.5,0)
   print("drive")
   time.sleep(1)
   drive(0,0)
@@ -106,7 +106,10 @@ while True:
 
 
 """Ultraschallsensor funktion
-when_in_range:
+
+ultraschallSensor.when_in_range():
+
+if ultraschallSensor.when_in_range():
   ultraschallServo.min()
   distanceLeft = ultraschallSensor.distance*100
   time.sleep(0.5)

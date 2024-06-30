@@ -96,11 +96,11 @@ def drive(speed = 1.0, steer = 0.0):
     i = 1
   elif speed2 < 0:
     i = -1
-  left = left*i
-  right = right*i
+  left = left
+  right = right
   print(left,right)
-  left = abs(left)
-  right = abs(right)
+  left = abs(left)*i
+  right = abs(right)*i
   print(left,right)
   speedLeft.value = left
   speedRight.value = right

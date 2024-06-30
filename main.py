@@ -24,10 +24,10 @@ speedRight = gpiozero.PWMOutputDevice(motorSpeedRightPin, active_high=True, init
 lineSensorLeftPin = gpiozero.LineSensor()
 lineSensorMidPin = gpiozero.LineSensor()
 lineSensorRightPin = gpiozero.LineSensor()"""
-#Ultraschallsensor
+"""#Ultraschallsensor
 ultraschallSensor = gpiozero.DistanceSensor(echo=23, trigger=24, threshold_distance = 0.05)
 ultraschallServo = gpiozero.Servo(21)
-
+"""
 
 
 #falls def drive nt funktionieren sollte>

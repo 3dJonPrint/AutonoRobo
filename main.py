@@ -106,10 +106,7 @@ while True:
 
 
 #Ultraschallsensor funktion
-
-ultraschallSensor.when_in_range(turnAround)
-
-def turnAround:
+def turnAround():
   ultraschallServo.min()
   distanceLeft = ultraschallSensor.distance*100
   time.sleep(0.5)

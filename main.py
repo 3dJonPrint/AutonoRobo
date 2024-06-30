@@ -47,7 +47,8 @@ def turnAround():
   elif distanceLeft > distanceRight:
     drive(0,-1)
     time.sleep(0.5)
-#Fahrfun
+    
+#Fahrfunktion
 def drive(speed = 1.0, steer = 0.0):
   right = 0.0
   left = 0.0
@@ -91,10 +92,10 @@ def drive(speed = 1.0, steer = 0.0):
 while True:
   drive(0.5,0.3)
   print("drive")
-  time.sleep(1)
+  time.sleep(10)
   drive(0.5,-0.3)
   print("stop")
-  time.sleep(1)
+  time.sleep(10)
 """  #Liniensensor funktion
   if lineSensorMidPin:
     drive()

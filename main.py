@@ -23,10 +23,10 @@ forwardRight = gpiozero.DigitalOutputDevice(motorForwardRightPin, active_high=Tr
 reverseRight = gpiozero.DigitalOutputDevice(motorReverseRightPin, active_high=True, initial_value=False)
 speedRight = gpiozero.PWMOutputDevice(motorSpeedRightPin, active_high=True, initial_value=1, frequency=100)
 
-"""#Liniensensor
-lineSensorLeftPin = gpiozero.LineSensor()
-lineSensorMidPin = gpiozero.LineSensor()
-lineSensorRightPin = gpiozero.LineSensor()"""
+#Liniensensor
+lineSensorLeftPin = gpiozero.LineSensor(25)
+lineSensorMidPin = gpiozero.LineSensor(24)
+lineSensorRightPin = gpiozero.LineSensor(23)
 
 #Ultraschallsensor
 ultraschallSensor = gpiozero.DistanceSensor(echo=23, trigger=24, threshold_distance = 0.05)
@@ -89,20 +89,37 @@ def drive(speed = 1.0, steer = 0.0):
     speedLeft.value = left
     speedRight.value = right
 
+def linesensordrive():
+  #Liniensensor funktion
+  ll = lineSensorLeftPin
+  lm = lineSensorMidPin
+  lr = lineSensorRightPin
+  if ((not ll and lm and not lr) or ( ll and lm and lr)):
+    drive()
+  elif (not ll and not lm and lr):
+    drive(0,1)
+  elif ( ll and not lm and not lr):
+    drive(0, -1)
+  elif (not ll and not lm and not lr):
+    drive(0,-1)
+  elif ( ll and lm and not lr):
+    drive(0.5, -0.2)
+  elif (not ll and lm and lr):
+    drive(0.5, 0.2)
+  elif ( ll and not lm and lr):
+    drive(0,0)
+    
 while True:
+  linesensordrive()
+
+"""while True:
   drive(0.5,0.3)
   print("drive")
   time.sleep(10)
   drive(0.5,-0.3)
   print("stop")
-  time.sleep(10)
-"""  #Liniensensor funktion
-  if lineSensorMidPin:
-    drive()
-  elif lineSensorRightPin: 
-    drive(0,1)
-  elif lineSensorLeftPin:
-    drive(0, -1)"""
+  time.sleep(10)"""
+
 
 
 

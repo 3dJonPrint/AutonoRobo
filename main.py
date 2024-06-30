@@ -120,6 +120,32 @@ def linesensordrive():
     drive(0,0)
     print("left right")
 
+while True:
+  drive(0.2, 0)
+  print("mid")
+  time.sleep(1)
+  drive(0.2, 0)
+  print("all")
+  time.sleep(1)
+  drive(0,0.5)
+  print("right")
+  time.sleep(1)
+  drive(0, -0.5)
+  print("left")
+  time.sleep(1)
+  drive(0, 0)
+  print("nothing")
+  time.sleep(1)
+  drive(0.2, -0.5)
+  print("left mid")
+  time.sleep(1)
+  drive(0.2, 0.5)
+  print("mid right")
+  time.sleep(1)
+  drive(0,0)
+  print("left right")
+  time.sleep(1)
+
 while False:
   ll = lineSensorLeftPin.line_detected
   lm = lineSensorMidPin.line_detected

@@ -55,7 +55,7 @@ def turnAround():
 def drive(speed = 1.0, steer = 0.0):
   brake = False
   speed2 = speed
-  #speed = abs(speed)
+  speed = abs(speed)
   right = 0.0
   left = 0.0
   if (speed == 0 and not steer == 0):

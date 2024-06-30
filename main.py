@@ -24,10 +24,11 @@ speedRight = gpiozero.PWMOutputDevice(motorSpeedRightPin, active_high=True, init
 lineSensorLeftPin = gpiozero.LineSensor()
 lineSensorMidPin = gpiozero.LineSensor()
 lineSensorRightPin = gpiozero.LineSensor()"""
-"""#Ultraschallsensor
+#Ultraschallsensor
 ultraschallSensor = gpiozero.DistanceSensor(echo=23, trigger=24, threshold_distance = 0.05)
+#ultraschallSensor.when_in_range(turnAround)
 ultraschallServo = gpiozero.Servo(21)
-"""
+
 
 
 #falls def drive nt funktionieren sollte>
@@ -48,6 +49,19 @@ def stop():
   forwardRight.off()
   reverseLeft.off()
   reverseRight.off()"""
+
+#Ultraschallsensor funktion
+def turnAround():
+  ultraschallServo.min()
+  distanceLeft = ultraschallSensor.distance*100
+  time.sleep(0.5)
+  ultraschallServo.max()
+  distanceRight = ultraschallSensor.distance*100
+  time.sleep(0.5)
+  if distanceLeft < distanceRight:
+    drive(0,1)
+  elif distanceLeft > distanceRight:
+    drive(0,-1)
 
 def drive(speed = 1.0, steer = 0.0):
   right = 0.0
@@ -105,19 +119,7 @@ while True:
     drive(0, -1)"""
 
 
-#Ultraschallsensor funktion
-def turnAround():
-  ultraschallServo.min()
-  distanceLeft = ultraschallSensor.distance*100
-  time.sleep(0.5)
-  ultraschallServo.max()
-  distanceRight = ultraschallSensor.distance*100
-  time.sleep(0.5)
-  if distanceLeft < distanceRight:
-    drive(0,1)
-  elif distanceLeft > distanceRight:
-    drive(0,-1)
-  
+
   
   
 

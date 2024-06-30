@@ -135,7 +135,7 @@ def linesensordrive():
     print("left right")
 
 def drive_demo():
-  drive()
+  drive(0.5, 0)
   sleep(1)
   drive(0, 1)
   sleep(3)

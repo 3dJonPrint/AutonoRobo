@@ -138,6 +138,7 @@ while True:
     print("mid right")
   elif ( ll and not lm and lr):
     print("left right")
+  time.sleep(0.5)
 
 while True:
   linesensordrive()

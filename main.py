@@ -137,12 +137,12 @@ def linesensordrive():
 def drive_demo():
   drive(0.5, 0)
   sleep(1)
-  drive(1, 0.5)
+"""  drive(1, 0.5)
   sleep(5)
   drive(1, -0.5)
-  sleep(5)
+  sleep(5)"""
   drive(-1, 0)
-  sleep(10)
+  sleep(0.5)
 
 while drivedemo:
   drive_demo()

@@ -104,8 +104,6 @@ while True:
   elif lineSensorLeftPin:
     drive(0, -1)"""
 
-if ultraschallSensor.when_in_range():
-  
 
 """Ultraschallsensor funktion
 when_in_range:

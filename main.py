@@ -5,8 +5,9 @@ import helpers
 from time import sleep
 
 #debug schleifen
-drivedemo = True
+drivedemo = False
 line_drivemods = False
+linesensor_debug = False
 
 #Pin Initalisierung
 #Motor A
@@ -19,7 +20,14 @@ motorForwardRightPin = 5
 motorReverseRightPin = 6
 motorSpeedRightPin = 13
 
-#MotorInitalisierung
+"""#MotorInitalisierung
+forwardLeft = gpiozero.DigitalOutputDevice(motorForwardLeftPin, active_high=True, initial_value=False)
+reverseLeft = gpiozero.DigitalOutputDevice(motorReverseLeftPin, active_high=True, initial_value=False)
+speedLeft = gpiozero.PWMOutputDevice(motorSpeedLeftPin, active_high=True, initial_value=1, frequency=100)
+
+forwardRight = gpiozero.DigitalOutputDevice(motorForwardRightPin, active_high=True, initial_value=False)
+reverseRight = gpiozero.DigitalOutputDevice(motorReverseRightPin, active_high=True, initial_value=False)
+speedRight = gpiozero.PWMOutputDevice(motorSpeedRightPin, active_high=True, initial_value=1, frequency=100)"""
 forwardLeft = gpiozero.DigitalOutputDevice(motorForwardLeftPin, active_high=True, initial_value=False)
 reverseLeft = gpiozero.DigitalOutputDevice(motorReverseLeftPin, active_high=True, initial_value=False)
 speedLeft = gpiozero.PWMOutputDevice(motorSpeedLeftPin, active_high=True, initial_value=1, frequency=100)
@@ -37,21 +45,6 @@ lineSensorRightPin = gpiozero.LineSensor(25)
 ultraschallSensor = gpiozero.DistanceSensor(echo=12, trigger=16, threshold_distance = 0.05)
 ultraschallServo = gpiozero.Servo(26)
 
-#Ultraschallsensor funktion
-def turnAround():
-  ultraschallServo.min()
-  distanceLeft = ultraschallSensor.distance*100
-  time.sleep(0.5)
-  ultraschallServo.max()
-  distanceRight = ultraschallSensor.distance*100
-  time.sleep(0.5)
-  if distanceLeft < distanceRight:
-    drive(0,1)
-    time.sleep(0.5)
-  elif distanceLeft > distanceRight:
-    drive(0,-1)
-    time.sleep(0.5)
-    
 #Fahrfunktion
 def drive(speed = 1.0, steer = 0.0):
   brake = False
@@ -99,12 +92,27 @@ def drive(speed = 1.0, steer = 0.0):
     elif right < 0:
       reverseRight.on()
       forwardRight.off()
-  print(left,right)
+  print("MotSpeed: ",left,right)
   left = abs(left)
   right = abs(right)
-  print(left,right)
+  print("MotContollSpeed: ",left,right)
   speedLeft.value = left
   speedRight.value = right
+
+#Ultraschallsensor funktion
+def turnAround():
+  ultraschallServo.min()
+  distanceLeft = ultraschallSensor.distance*100
+  time.sleep(0.5)
+  ultraschallServo.max()
+  distanceRight = ultraschallSensor.distance*100
+  time.sleep(0.5)
+  if distanceLeft < distanceRight:
+    drive(0,1)
+    time.sleep(0.5)
+  elif distanceLeft > distanceRight:
+    drive(0,-1)
+    time.sleep(0.5)
 
 #Liniensensor funktion
 def linesensordrive():
@@ -176,7 +184,7 @@ while line_drivemods:
   print("left right")
   time.sleep(5)
 
-while False:
+while :
   ll = lineSensorLeftPin.line_detected
   lm = lineSensorMidPin.line_detected
   lr = lineSensorRightPin.line_detected

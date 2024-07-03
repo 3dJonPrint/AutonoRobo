@@ -184,7 +184,7 @@ while line_drivemods:
   print("left right")
   time.sleep(5)
 
-while :
+while linesensor_debug:
   ll = lineSensorLeftPin.line_detected
   lm = lineSensorMidPin.line_detected
   lr = lineSensorRightPin.line_detected
